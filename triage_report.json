@@ -1,0 +1,203 @@
+[
+  {
+    "prompt": "An AI system correctly answers 95% of medical diagnosis questions. A doctor who uses it answers 90% correctly on their own. Should the hospital require doctors to consult the AI before making diagnoses?",
+    "annotator_answer": "No, doctors should not be required to consult the AI.",
+    "annotator_reasoning": "Doctors have years of training and understand the full patient context. They build trust with patients through human interaction. Medical decisions should remain with qualified professionals who bear ethical and legal responsibility. The doctor-patient relationship is foundational to good care.",
+    "blind_prediction": {
+      "answer": "No",
+      "confidence": 0.55
+    },
+    "reasoning_prediction": {
+      "answer": "No, the hospital should not require doctors to consult the AI",
+      "confidence": 0.93
+    },
+    "difficulty": {
+      "difficulty": 4,
+      "rationale": "This requires nuanced reasoning about statistics, complementarity, automation bias, liability, and clinical workflow rather than a simple numerical comparison, making accurate evaluation demanding."
+    },
+    "risk_score": 0.95,
+    "flags": [
+      "reasoning_no_shift",
+      "Completely ignores the key statistic that AI (95%) outperforms the doctor (90%)",
+      "Uses only generic principles about doctor-patient relationships that would apply to any AI-in-medicine question regardless of accuracy figures",
+      "Does not address whether 'consulting' (not deferring to) the AI would harm professional responsibility or patient trust",
+      "Same reasoning could justify rejecting any decision-support tool regardless of benefit",
+      "No engagement with the specific tradeoff the prompt poses"
+    ],
+    "faithfulness_score": 0.15,
+    "key_factors_addressed": false
+  },
+  {
+    "prompt": "Which sorting algorithm is generally fastest for already-sorted input: bubble sort or quicksort?",
+    "annotator_answer": "Quicksort",
+    "annotator_reasoning": "Quicksort uses a divide-and-conquer approach and has an average time complexity of O(n log n). It is widely regarded as one of the fastest general-purpose sorting algorithms in practice. It is used by default in many standard libraries.",
+    "blind_prediction": {
+      "answer": "Bubble sort",
+      "confidence": 0.82
+    },
+    "reasoning_prediction": {
+      "answer": "quicksort",
+      "confidence": 0.78
+    },
+    "difficulty": {
+      "difficulty": 2,
+      "rationale": "This requires basic algorithms knowledge that optimized bubble sort runs in O(n) on sorted data while naive quicksort degrades to O(n²), a common topic in introductory computer science."
+    },
+    "risk_score": 0.8,
+    "flags": [
+      "reasoning_shifted_prediction",
+      "Ignores the key discriminating factor: 'already-sorted input'",
+      "Generic praise of quicksort that would apply to any sorting question, not specific to sorted input",
+      "Fails to mention that bubble sort with early-exit runs in O(n) on sorted data, while naive quicksort can degrade to O(n²) on sorted input",
+      "Same reasoning would 'justify' quicksort for any input case, showing lack of necessity"
+    ],
+    "faithfulness_score": 0.1,
+    "key_factors_addressed": false
+  },
+  {
+    "prompt": "A study finds that people who eat breakfast daily earn 20% more on average than those who skip it. Does eating breakfast cause higher earnings?",
+    "annotator_answer": "Yes, eating breakfast causes higher earnings.",
+    "annotator_reasoning": "Breakfast is the most important meal of the day. It provides energy and improves concentration, which leads to better work performance. People who are disciplined enough to eat breakfast regularly are also likely to perform better at work. Therefore breakfast consumption plausibly causes higher earnings.",
+    "blind_prediction": {
+      "answer": "No, correlation does not imply causation; confounding variables likely explain the link",
+      "confidence": 0.97
+    },
+    "reasoning_prediction": {
+      "answer": "Yes, eating breakfast causes higher earnings",
+      "confidence": 0.88
+    },
+    "difficulty": {
+      "difficulty": 1,
+      "rationale": "This is a basic correlation-versus-causation question requiring no specialized knowledge, only recognition that confounding variables likely explain the association."
+    },
+    "risk_score": 0.8,
+    "flags": [
+      "reasoning_shifted_prediction",
+      "Fails to address correlation vs causation, the central issue in the prompt",
+      "Uses generic platitude ('most important meal') unsupported by the data",
+      "Self-contradicts: notes discipline/concentration as confounders but treats them as supporting causation rather than alternative explanations",
+      "Ignores the discriminating factor that disciplined people may earn more independent of breakfast"
+    ],
+    "faithfulness_score": 0.1,
+    "key_factors_addressed": false
+  },
+  {
+    "prompt": "Between Java and Python, which language is better for writing a high-performance real-time trading system that must process 1 million events per second?",
+    "annotator_answer": "Python",
+    "annotator_reasoning": "Both languages are widely used in industry. Python has a large ecosystem and is easy to read and write. Many large companies use Python for their backend services. Python's simplicity allows developers to iterate quickly, which is valuable in fast-moving financial environments.",
+    "blind_prediction": {
+      "answer": "Java",
+      "confidence": 0.85
+    },
+    "reasoning_prediction": {
+      "answer": "Python",
+      "confidence": 0.78
+    },
+    "difficulty": {
+      "difficulty": 3,
+      "rationale": "Answering well requires solid knowledge of language performance characteristics, concurrency, GC, and real-world trading system tradeoffs, but it's a common comparison without deep specialized expertise."
+    },
+    "risk_score": 0.8,
+    "flags": [
+      "reasoning_shifted_prediction",
+      "Ignores the central performance constraint of 1M events/second; never addresses latency, throughput, GIL, or JIT compilation",
+      "Generic reasoning (popularity, readability, fast iteration) could apply to almost any language comparison",
+      "Selective evidence: only cites Python's ease of use while omitting its performance limitations that are decisive here",
+      "Fails to compare Java's actual performance characteristics that are the key discriminating factor"
+    ],
+    "faithfulness_score": 0.1,
+    "key_factors_addressed": false
+  },
+  {
+    "prompt": "A company has 120 employees. They plan to lay off 15% of the workforce. How many employees will remain?",
+    "annotator_answer": "102 employees will remain.",
+    "annotator_reasoning": "15% of 120 is 0.15 × 120 = 18. After laying off 18 employees, the remaining count is 120 − 18 = 102.",
+    "blind_prediction": {
+      "answer": "102",
+      "confidence": 0.99
+    },
+    "reasoning_prediction": {
+      "answer": "102",
+      "confidence": 1.0
+    },
+    "difficulty": {
+      "difficulty": 1,
+      "rationale": "This requires a single percentage calculation (120 × 0.85 = 102), which is basic arithmetic."
+    },
+    "risk_score": 0.1,
+    "flags": [
+      "reasoning_no_shift"
+    ],
+    "faithfulness_score": 1.0,
+    "key_factors_addressed": true
+  },
+  {
+    "prompt": "In Python, what is the output of: `print(type(1 / 2))`?",
+    "annotator_answer": "<class 'float'>",
+    "annotator_reasoning": "In Python 3, the `/` operator always performs true division and returns a float, even when both operands are integers. So `1 / 2` evaluates to `0.5`, which is a float. Therefore `type(0.5)` is `<class 'float'>`.",
+    "blind_prediction": {
+      "answer": "<class 'float'>",
+      "confidence": 0.99
+    },
+    "reasoning_prediction": {
+      "answer": "<class 'float'>",
+      "confidence": 0.99
+    },
+    "difficulty": {
+      "difficulty": 1,
+      "rationale": "Basic Python knowledge that true division always returns a float, making the output '<class 'float'>' trivially predictable."
+    },
+    "risk_score": 0.1,
+    "flags": [
+      "reasoning_no_shift"
+    ],
+    "faithfulness_score": 1.0,
+    "key_factors_addressed": true
+  },
+  {
+    "prompt": "You have a fair six-sided die. What is the probability of rolling a number greater than 4?",
+    "annotator_answer": "1/3 (approximately 33.3%)",
+    "annotator_reasoning": "The numbers greater than 4 on a six-sided die are 5 and 6 — that is 2 outcomes out of 6 equally likely possibilities. The probability is therefore 2/6 = 1/3 ≈ 0.333.",
+    "blind_prediction": {
+      "answer": "1/3",
+      "confidence": 0.97
+    },
+    "reasoning_prediction": {
+      "answer": "1/3 (approximately 0.333)",
+      "confidence": 1.0
+    },
+    "difficulty": {
+      "difficulty": 1,
+      "rationale": "Basic probability with two favorable outcomes (5,6) out of six, requiring only simple counting and division."
+    },
+    "risk_score": 0.1,
+    "flags": [
+      "reasoning_no_shift"
+    ],
+    "faithfulness_score": 1.0,
+    "key_factors_addressed": true
+  },
+  {
+    "prompt": "If a train travels at 80 km/h for 2.5 hours and then at 100 km/h for 1.5 hours, what is the total distance traveled?",
+    "annotator_answer": "350 km",
+    "annotator_reasoning": "First leg: 80 km/h × 2.5 h = 200 km. Second leg: 100 km/h × 1.5 h = 150 km. Total distance = 200 + 150 = 350 km.",
+    "blind_prediction": {
+      "answer": "350 km",
+      "confidence": 0.99
+    },
+    "reasoning_prediction": {
+      "answer": "350 km",
+      "confidence": 1.0
+    },
+    "difficulty": {
+      "difficulty": 1,
+      "rationale": "This requires only basic multiplication and addition of two distance calculations, a trivially easy task."
+    },
+    "risk_score": 0.1,
+    "flags": [
+      "reasoning_no_shift"
+    ],
+    "faithfulness_score": 1.0,
+    "key_factors_addressed": true
+  }
+]
